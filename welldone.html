@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Suzuya Birthday</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --suzuya-white: #f5f5f5;
+            --suzuya-black: #050505;
+            --blood-red: #cc0000;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--suzuya-black);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            background-image: url('https://allwebs.ru/images/2026/04/13/6ab50229088d27071ea71195757ae412.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--suzuya-white);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            border-left: 2px dashed var(--blood-red);
+            border-right: 2px dashed var(--blood-red);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 4px solid var(--blood-red);
+            filter: grayscale(80%) contrast(110%);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 2.8rem;
+            color: var(--suzuya-white);
+            text-transform: uppercase;
+            margin: 10px 0 20px 0;
+            text-shadow: 2px 2px 0px var(--blood-red);
+            line-height: 1.1;
+            word-wrap: break-word;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--suzuya-black);
+            padding: 20px;
+            margin: 0 10px 25px 10px;
+            border: 3px solid var(--suzuya-black);
+            outline: 2px dashed var(--suzuya-black);
+            outline-offset: -8px;
+            transform: rotate(-1deg);
+            box-shadow: 8px 8px 0px var(--blood-red);
+        }
+
+        .big-text {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--blood-red);
+            font-size: 1.4rem;
+            display: block;
+            margin-top: 15px;
+            font-family: 'Creepster', cursive;
+            letter-spacing: 1px;
+        }
+
+        .secondary-photo-container {
+            margin: 20px auto;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px dashed var(--blood-red);
+            overflow: hidden;
+            background: #000;
+            animation: spinSlow 15s linear infinite;
+        }
+
+        .secondary-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .action-btn {
+            background: var(--blood-red);
+            color: var(--suzuya-white);
+            border: none;
+            padding: 18px 30px;
+            font-family: 'Creepster', cursive;
+            font-size: 1.6rem;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 90%;
+            text-transform: uppercase;
+            transition: 0.2s;
+            clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%);
+        }
+
+        .action-btn:active {
+            transform: scale(0.96);
+            background: #fff;
+            color: #000;
+        }
+
+        .hidden-area {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--blood-red);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .sub-quote {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="overlay"></div>
+        
+        <div class="content-wrapper">
+            <img src="https://allwebs.ru/images/2026/04/13/19d51e3334d0d79f4dcee0f69e248020.jpg" alt="Suzuya" class="main-photo">
+
+            <h1>С ДНЁМ<br>РОЖДЕНИЯ</h1>
+
+            <div class="message-box">
+                <p class="big-text">
+                    Сегодня отличный день, чтобы устроить хаос. 
+                    Желаю тебе быть свободным от правил и всегда находить повод для безумной улыбки.
+                    <span class="highlight">ИГРА НАЧИНАЕТСЯ</span>
+                </p>
+            </div>
+
+            <div class="secondary-photo-container">
+                <img src="https://allwebs.ru/images/2026/04/13/eb1c819609572d821f628bb8c2835e7c.png" alt="Detail" class="secondary-photo">
+            </div>
+
+            <button class="action-btn" onclick="revealSecret()">РАЗРЕЗАТЬ НИТИ</button>
+
+            <div id="secret" class="hidden-area">
+                <p class="quote">"Жизнь — это всего лишь игра, в которой мы все игрушки."</p>
+                <p class="sub-quote">— Сузуя Джузо</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealSecret() {
+            const secret = document.getElementById('secret');
+            const btn = document.querySelector('.action-btn');
+            
+            document.body.style.backgroundColor = "#fff";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "#050505";
+            }, 50);
+
+            secret.style.display = 'block';
+            
+            btn.innerHTML = "КОЛЛЕКЦИЯ ПОПОЛНЕНА";
+            btn.style.backgroundColor = "#333";
+            
+            const container = document.querySelector('.container');
+            container.style.transform = "translateX(5px)";
+            setTimeout(() => { container.style.transform = "translateX(-5px)"; }, 50);
+            setTimeout(() => { container.style.transform = "translateX(0)"; }, 100);
+        }
+    </script>
+</body>
+</html>
